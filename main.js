@@ -4,6 +4,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Route every link on the page to the connect page. Scoped to <a> links, so the
+  // photo gallery (figure click-to-zoom) and the lightbox/menu buttons keep working.
+  const CONNECT_URL = 'https://www.meisztro.com/connect';
+  document.querySelectorAll('a[href]').forEach((a) => {
+    a.setAttribute('href', CONNECT_URL);
+    a.removeAttribute('target');
+  });
+
   // Header scroll state
   const header = document.querySelector('.site-header');
   const onScroll = () => {
